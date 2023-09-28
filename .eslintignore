@@ -1,0 +1,14 @@
+# config
+.eslintrc.js
+.prettierrc
+next.config.js
+tsconfig.json
+postcss.config.js
+
+# build
+build/
+.next/
+
+_templates/
+setup.js
+*.config.*
