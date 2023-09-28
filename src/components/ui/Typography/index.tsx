@@ -15,7 +15,7 @@ import {
   caption,
 } from '@/constants/css/fontSize.css';
 
-type Variant =
+export type Variant =
   | 'h1'
   | 'h2'
   | 'h3'
