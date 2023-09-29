@@ -6,5 +6,6 @@ export const apiPath = (baseUrl: string) =>
           perYear: `${baseUrl}/api/v1/population/composition/perYear`,
         },
       },
+      prefectures: `${baseUrl}/api/v1/prefectures`,
     },
   }) as const;
