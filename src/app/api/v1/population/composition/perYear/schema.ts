@@ -21,10 +21,15 @@ export const ResponseSchema = z.object({
 export type Response = z.infer<typeof ResponseSchema>;
 
 export const RequestParamSchema = z.object({
-  cityCode: z.string().refine((data) => !isNaN(+data), {
-    params: { input: 'id' },
-  }),
   prefCode: z.string().refine((data) => !isNaN(+data), {
     params: { input: 'id' },
   }),
+  cityCode: z.union([
+    z.string().refine((data) => data === '-', {
+      params: { input: 'prefCode' },
+    }),
+    z.string().refine((data) => !isNaN(+data), {
+      params: { input: 'prefCode' },
+    }),
+  ]),
 });
