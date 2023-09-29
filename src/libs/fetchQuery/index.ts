@@ -1,5 +1,7 @@
 import type { ZodSchema } from 'zod';
 
+import { BAD_REQUEST } from '@/constants/api/status';
+
 export const fetchQuery = (
   url: string,
   params: URLSearchParams,
@@ -12,7 +14,7 @@ export const fetchQuery = (
 
   const parsed = schema.safeParse(paramsObj);
   if (!parsed.success) {
-    throw new Error('Data validation failed');
+    throw new Error(BAD_REQUEST);
   }
   return `${url}?${params.toString()}`;
 };

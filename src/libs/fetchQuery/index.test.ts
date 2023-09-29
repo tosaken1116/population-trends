@@ -2,6 +2,8 @@ import { object, string } from 'zod';
 
 import { fetchQuery } from '.';
 
+import { BAD_REQUEST } from '@/constants/api/status';
+
 describe('fetchQuery libs', () => {
   it('クエリパラメータがある時 パラメータ付きでurlを返す', () => {
     const url = 'http://example.com';
@@ -40,8 +42,6 @@ describe('fetchQuery libs', () => {
     const url = 'http://example.com';
     const params = new URLSearchParams({ number: '123' });
 
-    expect(() => fetchQuery(url, params, testSchema)).toThrowError(
-      'Data validation failed'
-    );
+    expect(() => fetchQuery(url, params, testSchema)).toThrowError(BAD_REQUEST);
   });
 });
