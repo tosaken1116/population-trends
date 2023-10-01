@@ -10,3 +10,11 @@ export const GREY = {
   900: '#606060',
   1000: '#505050',
 } as const;
+
+export const PRIMARY = {
+  main: '#1976D2',
+  light: '#63A4FF',
+  dark: '#004BA0',
+  transparent: '#1976D280',
+  contrastText: '#FFFFFF',
+} as const;
