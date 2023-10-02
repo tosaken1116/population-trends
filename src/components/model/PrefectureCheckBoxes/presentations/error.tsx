@@ -6,7 +6,7 @@ import { container, errorIcon, errorText } from './css/error.css';
 import { Typography } from '@/components/ui/Typography';
 
 export const PrefectureCheckBoxesErrorPresentation: React.FC = () => (
-  <div className={container}>
+  <div className={container} data-testid="error">
     <FontAwesomeIcon
       icon={faCircleExclamation}
       shake

@@ -8,7 +8,7 @@ import {
 import { Skeleton } from '@/components/ui/Skeleton';
 
 export const PrefectureCheckBoxesLoadingPresentation: React.FC = () => (
-  <ul className={container}>
+  <ul className={container} data-testid="loading">
     {[...Array<number>(47)].map((_: number, i: number) => (
       <li key={i} className={prefectureItem}>
         <div className={checkboxStyle}>

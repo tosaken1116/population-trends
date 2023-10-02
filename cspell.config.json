@@ -10,7 +10,8 @@
     "clsx",
     "fontawesome",
     "fortawesome",
-    "tanstack"
+    "tanstack",
+    "testid"
   ],
   "ignorePaths": []
   // flagWords - list of words to be always considered incorrect
