@@ -86,6 +86,7 @@
     "markuplint": "^3.12.1",
     "mini-css-extract-plugin": "^2.7.6",
     "prettier": "^3.0.1",
+    "react-error-boundary": "^4.0.11",
     "storybook": "^7.2.2",
     "ts-jest": "^29.1.1",
     "typescript": "5.2.2"
