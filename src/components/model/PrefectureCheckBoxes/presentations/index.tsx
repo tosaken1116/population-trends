@@ -9,7 +9,7 @@ import { CheckBox } from '@/components/ui/CheckBox';
 type Props = {
   onChange: (target: Response['result'][number]) => void;
   prefectures: Response['result'] | undefined;
-  selectedPrefectures: Response['result'];
+  selectedPrefectures: Response['result'][number]['prefCode'][];
 };
 
 export const PrefectureCheckBoxesPresentation: React.FC<Props> = ({
@@ -19,7 +19,7 @@ export const PrefectureCheckBoxesPresentation: React.FC<Props> = ({
 }) => (
   <ul className={container}>
     {prefectures?.map((prefecture) => {
-      const selected = selectedPrefectures.includes(prefecture);
+      const selected = selectedPrefectures.includes(prefecture.prefCode);
       return (
         <li key={prefecture.prefCode} className={prefectureItem}>
           <CheckBox
