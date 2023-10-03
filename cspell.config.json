@@ -9,7 +9,9 @@
     "autodocs",
     "clsx",
     "fontawesome",
-    "fortawesome"
+    "fortawesome",
+    "tanstack",
+    "testid"
   ],
   "ignorePaths": []
   // flagWords - list of words to be always considered incorrect
