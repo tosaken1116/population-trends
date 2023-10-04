@@ -6,6 +6,7 @@ import { render, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { ErrorBoundary } from 'react-error-boundary';
 
+import { usePopulationChart } from './hooks';
 import {
   PopulationChartContainer,
   PopulationChartPresentation,
@@ -14,6 +15,12 @@ import { PopulationChartErrorPresentation } from './presentations/error';
 import { PopulationChartLoadingPresentation } from './presentations/loading';
 
 import { ClientProvider } from '@/components/functional/QueryClient';
+
+jest.mock('./hooks', () => ({
+  usePopulationChart: jest.fn(() => ({
+    visibleData: null,
+  })),
+}));
 
 describe('Population Chart model Component', () => {
   it('エラーの時にエラーコンポーネントが出る', async () => {
@@ -94,19 +101,19 @@ describe('Population Chart model Component', () => {
     expect(element?.firstChild).toHaveClass('recharts-responsive-container');
   });
 
-  it('データがないときに空表示が出る', async () => {
+  it('データがないときに空表示が出る', () => {
+    (usePopulationChart as jest.Mock).mockImplementation(() => ({
+      visibleData: null,
+    }));
+
     const { container, queryByTestId } = render(
       <ClientProvider>
         <PopulationChartContainer />
       </ClientProvider>
     );
 
-    jest.mock('./hooks', () => ({
-      usePopulationChart: (): { visibleData: null } => ({ visibleData: null }),
-    }));
-
     const element = container.firstChild;
     expect(element).toBeDefined();
-    await waitFor(() => expect(queryByTestId('empty')).toBeVisible());
+    expect(queryByTestId('empty')).toBeVisible();
   });
 });
