@@ -38,6 +38,7 @@ export const tabSelected = style({
   ':before': {
     bottom: 0,
   },
+  'pointerEvents': 'none',
 });
 
 export const tabNotSelected = style({

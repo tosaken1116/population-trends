@@ -26,6 +26,7 @@ export const Tab: React.FC<Props> = ({ children, onClick, selected }) => (
         key={child.props.title}
         className={tabStyle({ selected: child.props.title === selected })}
         onClick={(): void => onClick(child.props.title)}
+        disabled={child.props.title === selected}
       >
         {child}
       </button>
