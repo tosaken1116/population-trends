@@ -12,6 +12,13 @@
   "parserOptions": {
     "project": "./tsconfig.json"
   },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".ts", ".tsx"]
+      }
+    }
+  },
   "plugins": ["import", "unused-imports", "jsx-a11y", "@typescript-eslint"],
   "rules": {
     "@typescript-eslint/explicit-function-return-type": "error",
@@ -49,7 +56,7 @@
           },
           {
             "target": "./src/components/page/**/index.tsx",
-            "from": ["./src/components/page"]
+            "from": ["./src/components/page/**/index.tsx"]
           },
           {
             "target": "./src/app/**/page.tsx",
