@@ -7,7 +7,7 @@ import { errorIcon, errorText } from './css/error.css';
 import { Typography } from '@/components/ui/Typography';
 
 export const PopulationChartErrorPresentation: React.FC = () => (
-  <div className={container}>
+  <div className={container} data-testid="error">
     <FontAwesomeIcon
       icon={faCircleExclamation}
       shake
