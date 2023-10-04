@@ -54,6 +54,11 @@
           {
             "target": "./src/app/**/page.tsx",
             "from": ["./src/components/model", "./src/components/ui"]
+          },
+          {
+            "target": "./src/components/**/*",
+            "from": ["./node_modules/react-error-boundary"],
+            "message": "Don't import react-error-boundary directly, import from libs"
           }
         ]
       }

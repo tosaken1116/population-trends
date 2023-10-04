@@ -3,14 +3,15 @@ import React, { Suspense } from 'react';
 import 'cross-fetch/polyfill';
 
 import { render, waitFor } from '@testing-library/react';
+
 import '@testing-library/jest-dom';
-import { ErrorBoundary } from 'react-error-boundary';
 
 import { PrefectureCheckBoxesPresentation } from './presentations';
 import { PrefectureCheckBoxesErrorPresentation } from './presentations/error';
 import { PrefectureCheckBoxesLoadingPresentation } from './presentations/loading';
 
 import { ClientProvider } from '@/components/functional/QueryClient';
+import { ErrorBoundary } from '@/libs/errorBoundary';
 
 describe('PrefectureCheckBoxes model Component', () => {
   it('エラーの時にエラーコンポーネントが出る', async () => {

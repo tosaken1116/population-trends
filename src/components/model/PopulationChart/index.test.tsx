@@ -3,8 +3,8 @@ import React, { Suspense } from 'react';
 import 'cross-fetch/polyfill';
 
 import { render, waitFor } from '@testing-library/react';
+
 import '@testing-library/jest-dom';
-import { ErrorBoundary } from 'react-error-boundary';
 
 import { usePopulationChart } from './hooks';
 import {
@@ -15,6 +15,7 @@ import { PopulationChartErrorPresentation } from './presentations/error';
 import { PopulationChartLoadingPresentation } from './presentations/loading';
 
 import { ClientProvider } from '@/components/functional/QueryClient';
+import { ErrorBoundary } from '@/libs/errorBoundary';
 
 jest.mock('./hooks', () => ({
   usePopulationChart: jest.fn(() => ({
