@@ -34,7 +34,12 @@ export const PopulationChartPresentation: React.FC<Props> = ({ data }) => (
         }}
       >
         <CartesianGrid strokeDasharray="3 3" />
-        <YAxis dataKey="value" />
+        <YAxis
+          dataKey="value"
+          tick={{
+            fontSize: 12,
+          }}
+        />
         <XAxis dataKey="year" type="category" allowDuplicatedCategory={false} />
 
         <Legend />
