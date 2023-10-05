@@ -16,6 +16,7 @@ import {
   sSpacing,
   mSpacing,
   lSpacing,
+  unCheckIcon,
 } from './index.css';
 
 export type SizeProps = 's' | 'm' | 'l';
@@ -63,7 +64,11 @@ export const CheckBox: React.FC<Props> = ({
         ) : (
           <div>
             {icon?.unCheckedIcon || (
-              <FontAwesomeIcon icon={unCheckedIcon} size={IconSize[size]} />
+              <FontAwesomeIcon
+                className={unCheckIcon}
+                icon={unCheckedIcon}
+                size={IconSize[size]}
+              />
             )}
           </div>
         )}
