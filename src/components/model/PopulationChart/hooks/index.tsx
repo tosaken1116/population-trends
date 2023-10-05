@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { array, number, object, string } from 'zod';
 
-import { usePrefectureSWR } from '../../PrefectureCheckBoxes/hooks/usePrefectureQuery';
+import { usePrefectureQuery } from '../../PrefectureCheckBoxes/hooks/usePrefectureQuery';
 
 import { usePopulationQuery } from './usePopulationQuery';
 
@@ -35,7 +35,7 @@ export const usePopulationChart = (): IUsePopulationChart => {
   );
 
   const { data } = usePopulationQuery({ params });
-  const { data: prefectures } = usePrefectureSWR();
+  const { data: prefectures } = usePrefectureQuery();
 
   const visibleData = useMemo(() => {
     if (data === null) {

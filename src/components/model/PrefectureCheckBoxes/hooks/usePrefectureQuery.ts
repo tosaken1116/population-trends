@@ -20,7 +20,7 @@ const fetcher = async (url: string): Promise<DataResponse> =>
     DataResponseSchema
   );
 
-export const usePrefectureSWR = (): { data: DataResponse | undefined } => {
+export const usePrefectureQuery = (): { data: DataResponse | undefined } => {
   const { data } = useQuery<DataResponse>({
     queryKey: ['/api/v1/prefectures'],
     queryFn: () =>
