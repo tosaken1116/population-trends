@@ -1,6 +1,6 @@
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
-import { usePrefectureSWR } from './usePrefectureQuery';
+import { usePrefectureQuery } from './usePrefectureQuery';
 
 import type { Response } from '@/app/api/v1/prefectures/schema';
 
@@ -38,7 +38,7 @@ export const usePrefectureCheckBoxes = (): IUsePrefectureCheckBoxes => {
     replaceQuery(target);
   };
 
-  const { data } = usePrefectureSWR();
+  const { data } = usePrefectureQuery();
 
   return {
     onChange,
