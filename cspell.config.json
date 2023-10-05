@@ -11,7 +11,9 @@
     "fontawesome",
     "fortawesome",
     "tanstack",
-    "testid"
+    "testid",
+    "tosaken",
+    "YUMEMI"
   ],
   "ignorePaths": []
   // flagWords - list of words to be always considered incorrect
