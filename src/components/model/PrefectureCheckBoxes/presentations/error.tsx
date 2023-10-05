@@ -1,8 +1,8 @@
 import { faCircleExclamation } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { container } from './css/base.css';
 import {
-  container,
   errorIcon,
   errorMessage,
   errorText,

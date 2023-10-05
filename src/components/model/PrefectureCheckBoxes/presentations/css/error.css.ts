@@ -1,13 +1,5 @@
 import { style } from '@vanilla-extract/css';
 
-export const container = style({
-  display: 'flex',
-  flexWrap: 'wrap',
-  flexDirection: 'column',
-  alignItems: 'center',
-  position: 'relative',
-});
-
 export const errorText = style({
   fontWeight: 'bold',
 });
