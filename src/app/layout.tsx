@@ -13,7 +13,9 @@ import {
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  metadataBase: new URL(process.env['VERCEL_URL'] || 'http://localhost:3000'),
+  metadataBase: new URL(
+    `https://${process.env['VERCEL_URL']}` || 'http://localhost:3000'
+  ),
   title: SERVICE_TITLE,
   description: SERVICE_DESCRIPTION,
   openGraph: {
