@@ -1,6 +1,7 @@
 import { usePrefectureCheckBoxes } from '../hooks';
 
-import { container, prefectureItem, selectedItem } from './css/index.css';
+import { container } from './css/base.css';
+import { prefectureItem, selectedItem } from './css/index.css';
 
 import type { Response } from '@/app/api/v1/prefectures/schema';
 
