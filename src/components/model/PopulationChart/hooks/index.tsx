@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 
 import { useSearchParams } from 'next/navigation';
 import { array, number, object, string } from 'zod';
@@ -20,11 +20,25 @@ export type VisibleData = z.infer<typeof VisibleDataSchema>;
 
 type IUsePopulationChart = {
   visibleData: VisibleData | null;
+  activePrefectures: string[];
+  handleActivePrefectures: (prefecture: string) => void;
 };
 
 export const usePopulationChart = (): IUsePopulationChart => {
   const searchParams = useSearchParams();
   const isSearchParamNull = searchParams == null;
+  const [activePrefectures, setActivePrefectures] = useState<string[]>([]);
+
+  const handleActivePrefectures = (prefecture: string): void => {
+    setActivePrefectures((prevActivePrefectures) => {
+      if (prevActivePrefectures.includes(prefecture)) {
+        return prevActivePrefectures.filter(
+          (prevPrefecture) => prevPrefecture !== prefecture
+        );
+      }
+      return [...prevActivePrefectures, prefecture];
+    });
+  };
 
   const params = useMemo(
     () =>
@@ -73,5 +87,7 @@ export const usePopulationChart = (): IUsePopulationChart => {
 
   return {
     visibleData,
+    activePrefectures,
+    handleActivePrefectures,
   };
 };

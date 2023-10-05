@@ -29,13 +29,13 @@ export const useCategoryTab = (): IUseCategoryTab => {
   const onTabChange = (title: string): void => {
     params.set('s', title);
 
-    router.push(`${path}?${params.toString()}`);
+    router.push(`${path}?${params.toString()}`, { scroll: false });
   };
 
   useEffect(() => {
     if (selectedTab == null) {
       params.set('s', '総人口');
-      router.push(`${path}?${params.toString()}`);
+      router.push(`${path}?${params.toString()}`, { scroll: false });
     }
   }, [params, path, router, selectedTab]);
 

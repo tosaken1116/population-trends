@@ -60,6 +60,8 @@ export const Default: Story = {
                 ],
               },
             ]}
+            activePrefectures={[]}
+            handleActivePrefectures={(): void => console.log('selected')}
           />
         </div>
       </div>

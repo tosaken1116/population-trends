@@ -94,6 +94,8 @@ describe('Population Chart model Component', () => {
             ],
           },
         ]}
+        activePrefectures={[]}
+        handleActivePrefectures={jest.fn()}
       />
     );
 
