@@ -24,7 +24,6 @@ export const metadata = {
     siteName: SERVICE_TITLE,
     locale: 'ja_JP',
     type: 'website',
-    images: '/og-image.jpg',
   },
   twitter: {
     card: 'summary_large_image',
@@ -32,7 +31,6 @@ export const metadata = {
     description: SERVICE_DESCRIPTION,
     site: SERVICE_TWITTER,
     creator: SERVICE_CREATOR,
-    images: '/og-image.jpg',
   },
 };
 
