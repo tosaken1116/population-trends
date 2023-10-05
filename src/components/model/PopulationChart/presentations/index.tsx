@@ -16,11 +16,19 @@ import { PopulationChartEmptyPresentation } from './empty';
 
 import type { VisibleData } from '../hooks';
 
+import { PRIMARY } from '@/constants/colors';
+
 type Props = {
   data: VisibleData;
+  activePrefectures: string[];
+  handleActivePrefectures: (prefecture: string) => void;
 };
 
-export const PopulationChartPresentation: React.FC<Props> = ({ data }) => (
+export const PopulationChartPresentation: React.FC<Props> = ({
+  data,
+  activePrefectures,
+  handleActivePrefectures,
+}) => (
   <div className={container}>
     <ResponsiveContainer width="99%" height="80%">
       <LineChart
@@ -42,7 +50,11 @@ export const PopulationChartPresentation: React.FC<Props> = ({ data }) => (
         />
         <XAxis dataKey="year" type="category" allowDuplicatedCategory={false} />
 
-        <Legend />
+        <Legend
+          onClick={(data: { value: string }): void => {
+            handleActivePrefectures(data.value);
+          }}
+        />
         <Tooltip />
         {data.map(({ prefecture, data }) => (
           <Line
@@ -50,6 +62,20 @@ export const PopulationChartPresentation: React.FC<Props> = ({ data }) => (
             dataKey="value"
             data={data}
             name={prefecture}
+            stroke={
+              activePrefectures.length > 0 &&
+              !activePrefectures.includes(prefecture)
+                ? '#ccc'
+                : PRIMARY.light
+            }
+            strokeWidth={
+              activePrefectures.length == 0
+                ? 1
+                : !activePrefectures.includes(prefecture)
+                ? 1
+                : 4
+            }
+            onClick={(): void => handleActivePrefectures(prefecture)}
           />
         ))}
       </LineChart>
@@ -58,10 +84,17 @@ export const PopulationChartPresentation: React.FC<Props> = ({ data }) => (
 );
 
 export const PopulationChartContainer: React.FC = () => {
-  const { visibleData } = usePopulationChart();
+  const { visibleData, handleActivePrefectures, activePrefectures } =
+    usePopulationChart();
 
   if (visibleData == null || visibleData.length === 0) {
     return <PopulationChartEmptyPresentation />;
   }
-  return <PopulationChartPresentation data={visibleData} />;
+  return (
+    <PopulationChartPresentation
+      data={visibleData}
+      activePrefectures={activePrefectures}
+      handleActivePrefectures={handleActivePrefectures}
+    />
+  );
 };
