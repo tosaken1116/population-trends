@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 
 import { usePathname, useSearchParams, useRouter } from 'next/navigation';
 
@@ -26,15 +26,18 @@ export const useCategoryTab = (): IUseCategoryTab => {
 
   const selectedTab = useMemo(() => params.get('s'), [params]);
 
-  if (selectedTab == null) {
-    params.set('s', '総人口');
-  }
-
   const onTabChange = (title: string): void => {
     params.set('s', title);
 
     router.push(`${path}?${params.toString()}`);
   };
+
+  useEffect(() => {
+    if (selectedTab == null) {
+      params.set('s', '総人口');
+      router.push(`${path}?${params.toString()}`);
+    }
+  }, [params, path, router, selectedTab]);
 
   return { selectedTab: selectedTab ?? DEFAULT_TAB, onTabChange };
 };
