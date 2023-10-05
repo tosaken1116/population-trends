@@ -31,7 +31,7 @@ export const usePrefectureCheckBoxes = (): IUsePrefectureCheckBoxes => {
       params.append('q', target.prefCode.toString());
     }
 
-    router.push(`${path}?${params.toString()}`);
+    router.push(`${path}?${params.toString()}`, { scroll: false });
   };
 
   const onChange = (target: Response['result'][number]): void => {
