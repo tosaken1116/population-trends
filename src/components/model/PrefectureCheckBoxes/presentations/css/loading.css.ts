@@ -1,10 +1,5 @@
 import { style } from '@vanilla-extract/css';
 
-export const container = style({
-  display: 'flex',
-  flexWrap: 'wrap',
-});
-
 export const prefectureItem = style({
   position: 'relative',
   width: '8rem',

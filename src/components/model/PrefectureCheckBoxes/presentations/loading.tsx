@@ -1,9 +1,5 @@
-import {
-  checkboxStyle,
-  container,
-  labelStyle,
-  prefectureItem,
-} from './css/loading.css';
+import { container } from './css/base.css';
+import { checkboxStyle, labelStyle, prefectureItem } from './css/loading.css';
 
 import { Skeleton } from '@/components/ui/Skeleton';
 
