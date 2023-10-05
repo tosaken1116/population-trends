@@ -42,3 +42,7 @@ export const lSpacing = style({
   paddingLeft: '1.5rem',
   fontSize: '1.2rem',
 });
+
+export const unCheckIcon = style({
+  opacity: 0.3,
+});
